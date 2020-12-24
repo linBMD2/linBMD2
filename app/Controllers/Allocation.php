@@ -10,6 +10,7 @@ class Allocation extends BaseController
 	function __construct() 
 	{
         helper('common');
+        helper('transcribe');
     }
 	
 	public function index()
