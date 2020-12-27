@@ -1,6 +1,5 @@
 <?php namespace App\Controllers;
 
-// set use
 use App\Models\Allocation_Model;
 use App\Models\Syndicate_Model;
 use App\Models\Parameter_Model;
