@@ -22,8 +22,8 @@
 					<th style="padding:5px; text-align:center; width:<?php echo($nw); ?>;" scope="col">District:Vol</th>
 					<th style="padding:5px; text-align:center; width:<?php echo($nw); ?>;" scope="col">Registration</th>
 					<th style="padding:5px; text-align:center; width:<?php echo($sw); ?>;" scope="col">Page</th>
-					<th style="padding:5px; text-align:center; width:<?php echo($sw); ?>;" scope="col">Com</th>
-					<th class="pr-0" style="padding:5px; text-align:center; width:<?php echo($sw); ?>;" scope="col">Rem</th>
+					<th style="padding:5px; text-align:center; width:<?php echo($sw); ?>;" scope="col">Com +</th>
+					<th class="pr-0" style="padding:5px; text-align:center; width:<?php echo($sw); ?>;" scope="col">Com -</th>
 				</tr>
 			</thead>
 
@@ -59,7 +59,7 @@
 									<?php }?>
 							<td class="pr-0" style="padding:5px; text-align:center; width:<?php echo($sw); ?>;">
 								<a id="remove_comments" href="<?php echo(base_url('births/remove_comments/'.esc($detail['BMD_index']).'/'.esc($detail['BMD_line_sequence']))) ?>"</a>
-								<span><input type="checkbox" </input></span></td>
+								<span><?php echo '-';?></span></td>
 						</tr>
 					<?php endforeach; ?>
 				<?php endif; ?>

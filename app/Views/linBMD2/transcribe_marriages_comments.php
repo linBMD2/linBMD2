@@ -1,7 +1,7 @@
 	<?php $session = session(); ?>
 		
 	<br><br><br><br>
-		<form action="<?php echo(base_url('births/comment_step2')) ?>" method="post">
+		<form action="<?php echo(base_url('marriages/comment_step2')) ?>" method="post">
 			<div class="form-group row mt-2">
 				<label class="col-2 pl-0" for="comment_type">Comment type</label>
 				<select name="comment_type" id="comment_type" class="col-2">
@@ -24,7 +24,7 @@
 		
 			<div class="row mt-4 d-flex justify-content-between">
 				
-					<a id="return" class="btn btn-primary mr-0 flex-column align-items-center" href="<?php echo(base_url('births/transcribe_births_step1/0')); ?>">
+					<a id="return" class="btn btn-primary mr-0 flex-column align-items-center" href="<?php echo(base_url('marriages/transcribe_marriages_step1/0')); ?>">
 						<span>Return</span>
 					</a>
 
