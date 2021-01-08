@@ -235,6 +235,7 @@ class Header extends BaseController
 							'BMD_image_zoom' => 100,
 							'BMD_image_x' => 1100,
 							'BMD_image_y' => 50,
+							'BMD_image_rotate' => 0,
 						];
 		$id = $header_model->insert($data);
 			

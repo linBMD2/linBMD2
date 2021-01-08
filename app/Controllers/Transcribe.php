@@ -757,18 +757,19 @@ class Transcribe extends BaseController
 			{
 				case 0:
 					// message defaults
-					$session->set('message_1', 'Set the zoom percentage, horizontal and vertical image size to suit your requirements.');
+					$session->set('message_1', 'Set the zoom percentage, horizontal, vertical image size and rotation  to suit your requirements.');
 					$session->set('message_class_1', 'alert alert-primary');
 					$session->set('message_2', '');
 					$session->set('message_class_2', '');
 					$session->set('image_zoom', 0);
 					$session->set('image_width', 0);
 					$session->set('image_height', 0);
+					$session->set('image_rotate', 0);
 					break;
 				case 1:
 					break;
 				case 2:
-					$session->set('message_1', 'Set the zoom percentage, horizontal and vertical image size to suit your requirements.');
+					$session->set('message_1', 'Set the zoom percentage, horizontal, vertical image size and rotation  to suit your requirements.');
 					$session->set('message_class_1', 'alert alert-primary');
 					break;
 				default:
@@ -789,6 +790,7 @@ class Transcribe extends BaseController
 		$session->set('image_zoom', $this->request->getPost('image_zoom'));
 		$session->set('image_width', $this->request->getPost('image_width'));
 		$session->set('image_height', $this->request->getPost('image_height'));
+		$session->set('image_rotate', $this->request->getPost('image_rotate'));
 		// do tests
 		// zoom
 		if ( $session->image_zoom == '' OR $session->image_zoom == '0' OR is_numeric($session->image_zoom) === false OR  $session->image_zoom < 0 )
@@ -814,6 +816,14 @@ class Transcribe extends BaseController
 				$session->set('message_class_2', 'alert alert-danger');
 				return redirect()->to( base_url('transcribe/transcribe_step1/2') );
 			}
+		// rotate
+		if ( $session->image_rotate == '' OR $session->image_rotate == '0' OR is_numeric($session->image_rotate) === false )
+			{
+				$session->set('show_view_type', 'image_parameters');
+				$session->set('message_2', 'Image ROTATE cannot be blank, zero, non_numeric. It can be negative for rotate left.');
+				$session->set('message_class_2', 'alert alert-danger');
+				return redirect()->to( base_url('transcribe/transcribe_step1/2') );
+			}
 			
 		// all good
 		// update header
@@ -821,6 +831,7 @@ class Transcribe extends BaseController
 							'BMD_image_zoom' => $session->image_zoom,
 							'BMD_image_x' => $session->image_width,
 							'BMD_image_y' => $session->image_height,
+							'BMD_image_rotate' => $session->image_rotate,
 						];
 		$header_model->update($session->transcribe_header[0]['BMD_header_index'], $data);
 		// destroy any feh windows

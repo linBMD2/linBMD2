@@ -1,6 +1,4 @@
 	<?php $session = session(); ?>
-
-	<br><br><br><br><br><br>
 	
 	<form action="<?php echo(base_url('births/transcribe_births_step2')) ?>" method="post">
 		<div class="row">
