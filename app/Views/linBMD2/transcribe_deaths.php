@@ -1,6 +1,5 @@
 	<?php $session = session(); ?>	
 	
-	<br><br><br><br><br><br>
 	<form action="<?php echo(base_url('deaths/transcribe_deaths_step2')) ?>" method="post">
 		<div class="row">
 			<h6 class="col-2 pl-0 small text-muted">Family Name*</h6>
